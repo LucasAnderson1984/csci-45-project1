@@ -1,8 +1,8 @@
 # csci-45-project1 #
 ## Team ##
-<p>Joses Paras</p>
-<p>Lucas Anderson</p>
-<p>Tanpreet Dhaliwal</p>
+Joses Paras <br />
+Lucas Anderson <br />
+Tanpreet Dhaliwal
 
 ## Rules ##
 <p>The specific rules for this project are:</p>
@@ -14,16 +14,16 @@
 - - - -
 # Project Proposal #
 <p>Create a puzzle box using the sensors we checked out in class.</p>
-<p>_Fill out more later.  Have the team discussion on the specifics._</p>
+_Fill out more later.  Have the team discussion on the specifics._
 
 Example: [Xbox Puzzle](https://www.youtube.com/watch?v=o_8e6XgAiow)
 
 ## Sensors ##
-<p>Rotary Encoder</p>
-<p>Touch Switch</p>
-<p>Photoresistor</p>
+Rotary Encoder <br />
+Touch Switch <br />
+Photoresistor
 
 ## Responsibilities ##
-<p>Programming the touch switch - Joses</p>
-<p>Programming the rotary encoder - Lucas</p>
-<p>Programming the photoresistor - Tanpreet</p>
+Programming the touch switch - Joses <br />
+Programming the rotary encoder - Lucas <br />
+Programming the photoresistor - Tanpreet
