@@ -29,22 +29,24 @@ Programming the rotary encoder - Lucas <br />
 Programming the tilt switch - Tanpreet
 
 ## Pin Mapping ##
-### Rotary Encoder ###
-GPIO 6 - Green LED
-GPIO 16 - Red LED
-GPIO 17 - RoAPin
-GPIO 22 - SWPin
+#### Rotary Encoder ###
+[Rotary Encoder](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-27-rotary-encoder-module-sensor-kit-v2-0-for-b-plus.html) <br />
+GPIO 6 - Green LED <br />
+GPIO 16 - Red LED <br />
+GPIO 17 - RoAPin <br />
+GPIO 22 - SWPin <br />
 GPIO 27 - RoBPin
 
-### Touch Switch ###
-[Touch Switch](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-24-touch-switch-sensor-kit-v2-0-for-b-plus.html)
-GPIO 12 - Red LED
-GPIO 23 - TouchPin
+#### Touch Switch ####
+[Touch Switch](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-24-touch-switch-sensor-kit-v2-0-for-b-plus.html) <br />
+GPIO 12 - Red LED <br />
+GPIO 23 - TouchPin <br />
 GPIO 26 - Green LED
 
-### Tilt Switch ###
+#### Tilt Switch ####
+[Tilt Switch](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-7-tilt-switch-module-sensor-kit-v2-0-for-b-plus.html) <br />
 
 # Compile Code #
-```gcc main.c -lwiringPi```
-Run code
+Run code: <br />
+```gcc main.c -lwiringPi``` <br />
 ```sudo ./a.out```
