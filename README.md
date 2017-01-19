@@ -53,6 +53,6 @@ GPIO 25 - TiltPin
 # Compile and Run Code #
 Run code: <br />
 ```
-g++ main.cpp /class_files/rotary_encoder.cpp -lwiringPi
-sudo ./a.out
+make
+sudo ./project.o
 ```
