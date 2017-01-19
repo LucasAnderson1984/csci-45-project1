@@ -1,8 +1,8 @@
-main.o: main.cpp
-		g++ -c main.cpp -lwiringPi
-
 project: main.o touch_switch.o rotary_encoder.o
-		g++ main.o touch_switch.o rotary_encoder.o -lwiringPi
+	g++ main.o touch_switch.o rotary_encoder.o -lwiringPi
+
+main.o: main.cpp
+	g++ -c main.cpp -lwiringPi
 
 rotary_encoder: ./class_files/rotary_encoder.cpp ./header_files/rotary_encoder.h
 		g++ -c ./class_files/rotary_encoder.cpp -lwiringPi
