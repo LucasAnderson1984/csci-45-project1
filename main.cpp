@@ -7,7 +7,7 @@
 
 #define TouchPin 23
 #define Gpin 26
-#define Rpin 12
+#define Rpin 20
 
 int tmp = 0;
 
