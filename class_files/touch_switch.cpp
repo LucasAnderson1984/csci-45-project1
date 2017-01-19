@@ -1,4 +1,4 @@
-#include "./../header_files/rotary_encoder.h"
+#include "./../header_files/touch_switch.h"
 
 TouchSwitch::TouchSwitch() {
   int tmp = 0;
@@ -7,8 +7,7 @@ TouchSwitch::TouchSwitch() {
 
 TouchSwitch::~TouchSwitch() { }
 
-void TouchSwitch::LED(int color)
-{
+void TouchSwitch::LED(int color) {
   pinMode(Gpin, OUTPUT);
   pinMode(Rpin, OUTPUT);
 
