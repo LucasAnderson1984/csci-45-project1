@@ -1,5 +1,5 @@
 project: main.o touch_switch.o rotary_encoder.o
-	g++ main.o touch_switch.o rotary_encoder.o -o project.o
+	g++ main.o touch_switch.o rotary_encoder.o -lwiringPi -o project.o
 
 main.o: main.cpp
 	g++ -c main.cpp -lwiringPi
