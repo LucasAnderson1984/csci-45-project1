@@ -15,6 +15,7 @@ int main(void)
 
   RotaryEncoder rotaryEncoder;
   TouchSwitch touchSwitch;
+  TiltSwitch tiltSwitch;
 
   if(wiringPiISR(SWPin, INT_EDGE_FALLING, RotaryEncoder::btnISR) < 0) {
     fprintf(stderr, "Unable to init ISR\n",strerror(errno));
@@ -24,6 +25,7 @@ int main(void)
   while(1) {
     rotaryEncoder.checkStatus();
     touchSwitch.checkStatus();
+    tiltSwitch.checkStatus();
   }
 
   return 0;
