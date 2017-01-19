@@ -1,24 +1,48 @@
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <stdlib.h>
 #include <wiringPi.h>
+#include <stdio.h>
 #define TiltPin 0
-#define LedPin 1
+#define Gpin 1
+#define Rpin 2
+void LED(char* color)
+{
+pinMode(Gpin, OUTPUT);
+pinMode(Rpin, OUTPUT);
+if (color == "RED")
+{
+digitalWrite(Rpin, HIGH);
+digitalWrite(Gpin, LOW);
+}
+else if (color == "GREEN")
+{
+digitalWrite(Rpin, LOW);
+digitalWrite(Gpin, HIGH);
+}
+else
+printf("LED Error");
+}
 int main(void)
 {
-if(wiringPiSetup() < 0){
-fprintf(stderr, "Unable to setup wiringPi:%s\n",strerror(errno));
+if(wiringPiSetup() == -1){ //when initialize wiring failed,print messageto screen
+printf("setup wiringPi failed !");
 return 1;
 }
 pinMode(TiltPin, INPUT);
-pinMode(LedPin, OUTPUT);
+LED("GREEN");
+
 while(1){
 if(0 == digitalRead(TiltPin)){
-digitalWrite(LedPin, LOW); 
-} 
-else{
-digitalWrite(LedPin, HIGH); 
+delay(10);
+if(0 == digitalRead(TiltPin)){
+LED("RED");
+printf("Tilt!\n");
+}
+}
+else if(1 == digitalRead(TiltPin)){
+delay(10);
+if(1 == digitalRead(TiltPin)){
+while(!digitalRead(TiltPin));
+LED("GREEN");
+}
 }
 }
 return 0;
