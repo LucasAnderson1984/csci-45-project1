@@ -13,7 +13,7 @@ Tanpreet Dhaliwal
 
 - - - -
 # Project Proposal #
-<p>Create a puzzle box using the sensors we checked out in class.</p>
+<p>We each will learn how to operate a single sensor or more, then we will come together to make a simple puzzle in the style of the game 'Mastermind' or otherwise a simpler version of the example below.</p>
 _Fill out more later.  Have the team discussion on the specifics._
 
 Example: [Xbox Puzzle](https://www.youtube.com/watch?v=o_8e6XgAiow)
