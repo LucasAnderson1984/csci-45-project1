@@ -5,6 +5,7 @@
 #include <wiringPi.h>
 #include "./header_files/rotary_encoder.h"
 #include "./header_files/touch_switch.h"
+#include "./header_files/tilt_switch.h"
 
 int main(void)
 {
