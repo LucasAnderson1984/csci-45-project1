@@ -21,9 +21,38 @@ Example: [Xbox Puzzle](https://www.youtube.com/watch?v=o_8e6XgAiow)
 ## Sensors ##
 Rotary Encoder <br />
 Touch Switch <br />
-Photoresistor
+Tilt Switch
 
 ## Responsibilities ##
 Programming the touch switch - Joses <br />
 Programming the rotary encoder - Lucas <br />
-Programming the photoresistor - Tanpreet
+Programming the tilt switch - Tanpreet
+
+## Pin Mapping ##
+### Rotary Encoder ###
+[Rotary Encoder](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-27-rotary-encoder-module-sensor-kit-v2-0-for-b-plus.html) <br />
+GPIO 6 - Green LED <br />
+GPIO 12 - Red LED <br />
+GPIO 17 - RoAPin <br />
+GPIO 22 - SWPin <br />
+GPIO 27 - RoBPin
+
+### Touch Switch ###
+[Touch Switch](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-24-touch-switch-sensor-kit-v2-0-for-b-plus.html) <br />
+GPIO 20 - Red LED <br />
+GPIO 23 - TouchPin <br />
+GPIO 26 - Green LED
+
+### Tilt Switch ###
+[Tilt Switch](https://www.sunfounder.com/learn/sensor-kit-v2-0-for-raspberry-pi-b-plus/lesson-7-tilt-switch-module-sensor-kit-v2-0-for-b-plus.html) <br />
+GPIO 19 - Green LED <br />
+GPIO 16 - Red LED <br />
+GPIO 25 - TiltPin
+
+- - - -
+# Compile and Run Code #
+Run code: <br />
+```
+gcc main.c -lwiringPi
+sudo ./a.out
+```
