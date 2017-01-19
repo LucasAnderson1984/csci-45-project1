@@ -23,7 +23,7 @@ void TouchSwitch::LED(int color)
   }
 }
 
-void TouchSwitch::Print(int x){
+void TouchSwitch::Print(int x) {
   if (x != tmp) {
     if (x == 0)
       printf("...ON\n");

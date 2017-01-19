@@ -11,8 +11,11 @@
 class TouchSwitch {
   private:
     int tmp;
+    void LED(int);
+    void Print(int);
   public:
     TouchSwitch(void);
     ~TouchSwitch(void);
+    void checkStatus(void);
 };
 #endif
