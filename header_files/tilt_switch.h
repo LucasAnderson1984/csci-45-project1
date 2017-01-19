@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define TiltPin 0
-#define Gpin 1
-#define Rpin 2
+#define TiltPin 25
+#define Gpin 19
+#define Rpin 16
 
 class TiltSwitch {
   private:
