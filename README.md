@@ -53,6 +53,6 @@ GPIO 25 - TiltPin
 # Compile and Run Code #
 Run code: <br />
 ```
-gcc main.c -lwiringPi
-sudo ./a.out
+make
+sudo ./project.o
 ```
