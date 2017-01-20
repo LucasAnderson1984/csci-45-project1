@@ -13,7 +13,7 @@ class MasterMind {
     TiltSwitch *tiltSwitch;
 
   public:
-    MasterMind(RotaryEncoder, TouchSwitch, TiltSwitch);
+    MasterMind(RotaryEncoder&, TouchSwitch&, TiltSwitch&);
     ~MasterMind(void);
 
     void startGame();

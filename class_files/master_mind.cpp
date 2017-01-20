@@ -1,6 +1,6 @@
 #include "./../header_files/master_mind.h"
 
-MasterMind::MasterMind(RotaryEncoder re, TouchSwitch tos, TiltSwitch tis) {
+MasterMind::MasterMind(RotaryEncoder& re, TouchSwitch& tos, TiltSwitch& tis) {
   rotaryEncoder = re;
   touchSwitch = tos;
   tiltSwitch = tis;
