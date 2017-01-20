@@ -2,9 +2,9 @@
 #define MASTER_MIND_H
 
 #include <stdio.h>
-#include "./header_files/rotary_encoder.h"
-#include "./header_files/touch_switch.h"
-#include "./header_files/tilt_switch.h"
+#include "./rotary_encoder.h"
+#include "./touch_switch.h"
+#include "./tilt_switch.h"
 
 class MasterMind() {
   private:

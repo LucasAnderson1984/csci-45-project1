@@ -14,8 +14,7 @@ touch_switch.o: ./class_files/touch_switch.cpp ./header_files/touch_switch.h
 		g++ -c ./class_files/touch_switch.cpp -lwiringPi
 
 master_mind.o: ./class_files/master_mind.cpp ./header_files/master_mind.h
-		g++ -c ./class_files/master_mind.cpp -lwiringPi
-
+		g++ -c ./class_files/master_mind.cpp
 
 clean:
 		rm *.o project
