@@ -6,7 +6,7 @@
 #include "./touch_switch.h"
 #include "./tilt_switch.h"
 
-class MasterMind() {
+class MasterMind {
   private:
     RotaryEncoder *rotaryEncoder;
     TouchSwitch *touchSwitch;
