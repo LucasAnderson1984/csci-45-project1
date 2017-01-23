@@ -11,11 +11,14 @@ class MasterMind {
     RotaryEncoder *rotaryEncoder;
     TouchSwitch *touchSwitch;
     TiltSwitch *tiltSwitch;
+    int difficulty;
 
   public:
     MasterMind(RotaryEncoder*, TouchSwitch*, TiltSwitch*);
     ~MasterMind(void);
 
     void startGame();
+    int menu();
+    void setdifficulty(int x) {difficulty = x;};
 };
 #endif

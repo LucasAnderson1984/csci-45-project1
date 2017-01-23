@@ -15,3 +15,15 @@ void MasterMind::startGame() {
     tiltSwitch->checkStatus();
   }
 }
+
+int MasterMind::menu() {
+  int choice;
+
+  cout << "Welcome to this really bad game menu <text pending>\n"
+  cout << "0 - Easy(default)\n"
+  cout << "1 - Normal\n"
+  cout << "2 - Hard\n"
+  cin >> choice;
+
+  return choice;
+}
