@@ -27,3 +27,7 @@ int MasterMind::menu() {
 
   return choice;
 }
+
+int MasterMind::setDifficulty(int x) {
+  difficulty = x;
+}
