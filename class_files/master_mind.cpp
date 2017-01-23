@@ -31,3 +31,7 @@ int MasterMind::menu() {
 void MasterMind::setDifficulty(int x) {
   difficulty = x;
 }
+
+void MasterMind::resetGame() {
+  increment = 0;
+}

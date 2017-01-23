@@ -12,7 +12,7 @@ class TouchSwitch {
   private:
     int tmp;
     void LED(int);
-    void Print(int);
+    void InputPrint(int);
   public:
     TouchSwitch(void);
     ~TouchSwitch(void);

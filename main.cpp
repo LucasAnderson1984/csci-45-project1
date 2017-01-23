@@ -27,6 +27,7 @@ int main(void)
 
   int choice = masterMind.menu();
   masterMind.setDifficulty(choice);
+  masterMind.resetGame();
   masterMind.startGame();
 
   return 0;

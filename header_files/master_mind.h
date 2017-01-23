@@ -13,6 +13,8 @@ class MasterMind {
     TouchSwitch *touchSwitch;
     TiltSwitch *tiltSwitch;
     int difficulty;
+    int increment;  // For touch switch input to go from input 1-3 [0-2]
+    int comInput[3];  // combination (game) input
 
   public:
     MasterMind(RotaryEncoder*, TouchSwitch*, TiltSwitch*);
@@ -21,5 +23,6 @@ class MasterMind {
     void startGame();
     int menu();
     void setDifficulty(int x);
+    void resetGame();
 };
 #endif

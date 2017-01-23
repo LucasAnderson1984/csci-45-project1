@@ -22,7 +22,7 @@ void TouchSwitch::LED(int color) {
   }
 }
 
-void TouchSwitch::Print(int x) {
+void TouchSwitch::InputPrint(int x) {    
   if (x != tmp) {
     if (x == 0)
       printf("...ON\n");
@@ -31,10 +31,16 @@ void TouchSwitch::Print(int x) {
       printf("OFF..\n");
 
     tmp = x;
+
+    if (increment < 4) {
+      comInput[increment] = globalCounter;
+      ++increment;
+    }
+
   }
 }
 
 void TouchSwitch::checkStatus(void) {
   LED(digitalRead(TouchPin));
-  Print(digitalRead(TouchPin));
+  Input(digitalRead(TouchPin));
 }
