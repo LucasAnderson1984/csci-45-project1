@@ -1,5 +1,8 @@
 #include "./../header_files/master_mind.h"
 
+volatile int combInput[3]; // dunno what to name this, essentially globalCounter to be passed
+int incr; // increment to be passed over
+
 MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
   rotaryEncoder = re;
   touchSwitch = tos;
@@ -11,6 +14,7 @@ MasterMind::~MasterMind(void) { }
 void MasterMind::startGame() {
   while(1) {
     rotaryEncoder->checkStatus();
+    combInput = rotaryEncoder->getGlobalCounter();
     touchSwitch->checkStatus();
     tiltSwitch->checkStatus();
   }
@@ -34,4 +38,5 @@ void MasterMind::setDifficulty(int x) {
 
 void MasterMind::resetGame() {
   increment = 0;
+  incr = 0;
 }

@@ -33,8 +33,8 @@ void TouchSwitch::InputPrint(int x) {
     tmp = x;
 
     if (increment < 4) {
-      comInput[increment] = globalCounter;
-      ++increment;
+      combInput[incr] = globalCounter;
+      ++incr;
     }
 
   }

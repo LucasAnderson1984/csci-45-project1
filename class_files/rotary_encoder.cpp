@@ -61,3 +61,7 @@ void RotaryEncoder::checkStatus(void) {
     digitalWrite(greenLEDPin, 0);
   }
 }
+
+int RotaryEncoder::getGlobalCounter(void) {
+  return globalCounter;
+}

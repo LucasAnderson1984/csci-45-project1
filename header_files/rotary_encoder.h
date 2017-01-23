@@ -32,5 +32,6 @@ class RotaryEncoder {
     static volatile int globalCounter;
     static void btnISR(void);
     void checkStatus(void);
+    int getGlobalCounter(void);
 };
 #endif
