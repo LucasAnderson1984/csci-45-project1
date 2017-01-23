@@ -2,7 +2,6 @@
 #define MASTER_MIND_H
 
 #include <stdio.h>
-#include <iostream>
 #include "./rotary_encoder.h"
 #include "./touch_switch.h"
 #include "./tilt_switch.h"
@@ -20,6 +19,6 @@ class MasterMind {
 
     void startGame();
     int menu();
-    void setdifficulty(int x) {difficulty = x;};
+    void setDifficulty(int x);
 };
 #endif

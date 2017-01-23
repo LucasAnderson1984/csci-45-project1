@@ -19,14 +19,13 @@ int main(void)
   TouchSwitch *touchSwitch = new TouchSwitch;
   TiltSwitch *tiltSwitch = new TiltSwitch;
   MasterMind masterMind(rotaryEncoder, touchSwitch, tiltSwitch);
-  int choice;
 
   if(wiringPiISR(SWPin, INT_EDGE_FALLING, RotaryEncoder::btnISR) < 0) {
     fprintf(stderr, "Unable to init ISR\n",strerror(errno));
     return 1;
   }
 
-  choice = masterMind.menu();
+  int choice = masterMind.menu();
   masterMind.setdifficulty(choice);
   masterMind.startGame();
 
