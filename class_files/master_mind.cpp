@@ -19,10 +19,10 @@ void MasterMind::startGame() {
 int MasterMind::menu() {
   int choice;
 
-  std::cout << "Welcome to this really bad game menu <text pending>\n"
-  std::cout << "0 - Easy(default)\n"
-  std::cout << "1 - Normal\n"
-  std::cout << "2 - Hard\n"
+  std::cout << "Welcome to this really bad game menu <text pending>\n";
+  std::cout << "0 - Easy(default)\n";
+  std::cout << "1 - Normal\n";
+  std::cout << "2 - Hard\n";
   std::cin >> choice;
 
   return choice;
