@@ -2,7 +2,6 @@
 #define MASTER_MIND_H
 
 #include <stdio.h>
-#include <iostream.h>
 #include "./rotary_encoder.h"
 #include "./touch_switch.h"
 #include "./tilt_switch.h"
