@@ -20,6 +20,6 @@ class MasterMind {
 
     void startGame();
     int menu();
-    void setdifficulty(int x) {difficulty = x;};
+    void setdifficulty(int x);
 };
 #endif
