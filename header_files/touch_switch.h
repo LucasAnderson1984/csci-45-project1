@@ -11,6 +11,6 @@ class TouchSwitch {
   public:
     TouchSwitch(void);
     ~TouchSwitch(void);
-    void checkStatus(void);
+    int checkStatus(void);
 };
 #endif

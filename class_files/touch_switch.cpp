@@ -4,4 +4,8 @@ TouchSwitch::TouchSwitch(void) {
   pinMode(TouchPin, INPUT);
 }
 
-TouchSwitch::~TouchSwitch() { }
+TouchSwitch::~TouchSwitch(void) { }
+
+int TouchSwitch::checkStatus(void) {
+  return digitalRead(TouchPin);
+}
