@@ -41,22 +41,17 @@ void MasterMind::startGame() {
 int MasterMind::menu(void) {
   int choice;
 
-  std::cout << "Welcome to this really bad game menu <text pending>\n";
-  std::cout << "0 - Easy(default)\n";
-  std::cout << "1 - Normal\n";
-  std::cout << "2 - Hard\n";
-  std::cin >> choice;
+  cout << "Welcome to this really bad game menu <text pending>\n";
+  cout << "0 - Easy(default)\n";
+  cout << "1 - Normal\n";
+  cout << "2 - Hard\n";
+  cin >> choice;
 
   return choice;
 }
 
 void MasterMind::setDifficulty(int x) {
   difficulty = x;
-}
-
-void MasterMind::resetGame(void) {
-  increment = 0;
-  incr = 0;
 }
 
 void MasterMind::createLockCombination(void) {

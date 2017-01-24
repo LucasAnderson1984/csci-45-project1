@@ -32,8 +32,10 @@ class MasterMind {
     int difficulty;
     int incrementValues[2];
     int lockCombination[3];
+    int rotaryEncoderValue;
     int rotaryValue;
     int tiltSwitchValue;
+    int touchSwitchValue;
 
     void assignRotaryTurnValues(int);
     void checkStatus(void);
@@ -46,7 +48,6 @@ class MasterMind {
     ~MasterMind(void);
 
     int menu(void);
-    void resetGame(void);
     void setDifficulty(int x);
     void startGame(void);
 };
