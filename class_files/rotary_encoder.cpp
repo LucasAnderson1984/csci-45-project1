@@ -6,9 +6,7 @@ RotaryEncoder::RotaryEncoder(void) {
 
 RotaryEncoder::~RotaryEncoder(void) { }
 
-void RotaryEncoder::btnISR(void) {
-  globalCounter = 0;
-}
+void RotaryEncoder::btnISR(void) { }
 
 int RotaryEncoder::rotaryDeal(void) {
   Last_RoB_Status = digitalRead(CounterclockwiseTurn);
