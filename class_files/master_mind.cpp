@@ -111,12 +111,12 @@ void MasterMind::LEDSwitch(int position) {
       break;
     case 1:
       cout << "You found the second value of the combination" << endl;
-      ditalWrite(GreenPinTwo, HIGH);
+      digitalWrite(GreenPinTwo, HIGH);
       digitalWrite(RedPinTwo, LOW);
       break;
     case 2:
       cout << "You found the third value of the combination" << endl;
-      ditalWrite(GreenPinThree, HIGH);
+      digitalWrite(GreenPinThree, HIGH);
       digitalWrite(RedPinThree, LOW);
       break;
   }
