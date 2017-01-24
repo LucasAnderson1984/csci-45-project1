@@ -1,23 +1,7 @@
 #include "./../header_files/rotary_encoder.h"
 
-volatile int RotaryEncoder::globalCounter;
-
 RotaryEncoder::RotaryEncoder(void) {
-  srand(time(NULL));
-  r = (rand() % 200) - 100;
-  redLEDPin = 12;
-  greenLEDPin = 6;
-  tmp = 0;
-  globalCounter = 0;
-  printf("Random: %d\n", r);
-
-  pinMode(SWPin, INPUT);
-  pinMode(RoAPin, INPUT);
-  pinMode(RoBPin, INPUT);
-  pinMode(redLEDPin, OUTPUT);
-  pinMode(greenLEDPin, OUTPUT);
-
-  pullUpDnControl(SWPin, PUD_UP);
+  pullUpDnControl(SwitchPin, PUD_UP);
 }
 
 RotaryEncoder::~RotaryEncoder(void) { }
@@ -26,10 +10,10 @@ void RotaryEncoder::btnISR(void) {
   globalCounter = 0;
 }
 
-void RotaryEncoder::rotaryDeal(void) {
+int RotaryEncoder::rotaryDeal(void) {
   Last_RoB_Status = digitalRead(RoBPin);
 
-  while(!digitalRead(RoAPin)) {
+  while(!digitalRead(ClockwiseTurn)) {
     Current_RoB_Status = digitalRead(RoBPin);
     flag = 1;
   }
@@ -38,30 +22,9 @@ void RotaryEncoder::rotaryDeal(void) {
     flag = 0;
 
     if((Last_RoB_Status == 0) && (Current_RoB_Status == 1))
-      globalCounter++;
+      return 1;
 
     if((Last_RoB_Status == 1) && (Current_RoB_Status == 0))
-      globalCounter--;
+      return -1;
   }
-}
-
-void RotaryEncoder::checkStatus(void) {
-  rotaryDeal();
-
-  if (tmp != globalCounter) {
-    printf("%d\n", globalCounter);
-    tmp = globalCounter;
-  }
-
-  if(globalCounter == r) {
-    digitalWrite(redLEDPin, 0);
-    digitalWrite(greenLEDPin, 1);
-  } else {
-    digitalWrite(redLEDPin, 1);
-    digitalWrite(greenLEDPin, 0);
-  }
-}
-
-int RotaryEncoder::getGlobalCounter(void) {
-  return globalCounter;
 }

@@ -1,28 +1,51 @@
 #ifndef MASTER_MIND_H
 #define MASTER_MIND_H
 
-#include <stdio.h>
 #include <iostream>
+#include <time.h>
+#include <wiringPi.h>
 #include "./rotary_encoder.h"
 #include "./touch_switch.h"
 #include "./tilt_switch.h"
+
+//Green Pins
+#define GreenPinOne   6
+#define GreenPinTwo   19
+#define GreenPinThree 26
+
+//Red Pins
+#define RedPinOne   12
+#define RedPinTwo   16
+#define RedPinThree 20
 
 class MasterMind {
   private:
     RotaryEncoder *rotaryEncoder;
     TouchSwitch *touchSwitch;
     TiltSwitch *tiltSwitch;
+
+    int currentLockPosition;
+    int currentValue;
+    int decrementValues[2];
     int difficulty;
-    int increment;  // For touch switch input to go from input 1-3 [0-2]
-    int comInput[3];  // combination (game) input
+    int incrementValues[2];
+    int lockCombination[3];
+    int rotaryValue;
+    int tiltSwitchValue;
+
+    void assignRotaryTurnValues(int);
+    void checkStatus(void);
+    void createLockCombination(void);
+    void LEDSwitch(int);
+    void updateCurrentValue(void);
 
   public:
     MasterMind(RotaryEncoder*, TouchSwitch*, TiltSwitch*);
     ~MasterMind(void);
 
-    void startGame();
-    int menu();
+    int menu(void);
+    void resetGame(void);
     void setDifficulty(int x);
-    void resetGame();
+    void startGame(void);
 };
 #endif
