@@ -11,10 +11,10 @@ void RotaryEncoder::btnISR(void) {
 }
 
 int RotaryEncoder::rotaryDeal(void) {
-  Last_RoB_Status = digitalRead(RoBPin);
+  Last_RoB_Status = digitalRead(CounterclockwiseTurn);
 
   while(!digitalRead(ClockwiseTurn)) {
-    Current_RoB_Status = digitalRead(RoBPin);
+    Current_RoB_Status = digitalRead(CounterclockwiseTurn);
     flag = 1;
   }
 
