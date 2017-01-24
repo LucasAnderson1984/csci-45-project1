@@ -8,6 +8,8 @@
 #include "./touch_switch.h"
 #include "./tilt_switch.h"
 
+using namespace std;
+
 //Green Pins
 #define GreenPinOne   6
 #define GreenPinTwo   19

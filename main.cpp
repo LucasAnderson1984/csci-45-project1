@@ -15,9 +15,9 @@ int main(void)
     return 1;
   }
 
-  RotaryEncoder *rotaryEncoder = new RotaryEncoder;
-  TouchSwitch *touchSwitch = new TouchSwitch;
-  TiltSwitch *tiltSwitch = new TiltSwitch;
+  RotaryEncoder *rotaryEncoder = new RotaryEncoder();
+  TouchSwitch *touchSwitch = new TouchSwitch();
+  TiltSwitch *tiltSwitch = new TiltSwitch();
   MasterMind masterMind(rotaryEncoder, touchSwitch, tiltSwitch);
 
   if(wiringPiISR(SwitchPin, INT_EDGE_FALLING, RotaryEncoder::btnISR) < 0) {

@@ -67,16 +67,22 @@ void MasterMind::createLockCombination(void) {
 void MasterMind::assignRotaryTurnValues(int diff) {
   switch(diff) {
     case 0:
-      incrementValues = [2, 3];
-      decrementValues = [2, 3];
+      incrementValues[0] = 2;
+      incrementValues[1] = 3;
+      decrementValues[0] = 2;
+      decrementValues[1] = 3;
       break;
     case 1:
-      incrementValues = [3, 7];
-      decrementValues = [5, 5];
+      incrementValues[0] = 3;
+      incrementValues[1] = 7;
+      decrementValues[0] = 5;
+      decrementValues[1] = 5;
       break;
     case 2:
-      incrementValues = [11, 19];
-      decrementValues = [6, 15];
+      incrementValues[0] = 11;
+      incrementValues[1] = 19;
+      decrementValues[0] = 6;
+      decrementValues[1] = 15;
       break;
   }
 }
@@ -95,7 +101,7 @@ void MasterMind::updateCurrentValue(void) {
 }
 
 void MasterMind::checkStatus(void) {
-  if (lockCombination < 3)
+  if (currentLockPosition < 3)
     if (currentValue == lockCombination[currentLockPosition]) {
       LEDSwitch(currentLockPosition);
       currentLockPosition++;
