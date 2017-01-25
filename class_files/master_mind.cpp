@@ -9,6 +9,12 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
 
   currentLockPosition = 0;
   currentValue = 0;
+  pinMode(GreenPinOne, OUTPUT);
+  pinMode(GreenPinTwo, OUTPUT);
+  pinMode(GreenPinThree, OUTPUT);
+  pinMode(RedPinOne, OUTPUT);
+  pinMode(RedPinTwo, OUTPUT);
+  pinMode(RedPinThree, OUTPUT);
 }
 
 MasterMind::~MasterMind(void) { }
@@ -30,7 +36,7 @@ void MasterMind::startGame() {
     touchSwitchValue = touchSwitch->checkStatus();
     
     updateCurrentValue();
-    usleep(1500);
+    usleep(2000);
   }
 
   cout << "Congratulations, you opened the lock" << endl;
