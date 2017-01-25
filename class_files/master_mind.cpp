@@ -57,6 +57,10 @@ void MasterMind::setDifficulty(int x) {
 void MasterMind::createLockCombination(void) {
   for (int i = 0; i < 3; i++)
     lockCombination[i] = rand() % 100;
+
+  cout << lockCombination[0] << "-";
+  cout << lockCombination[1] << "-";
+  cout << lockCombination[2] << end;
 }
 
 void MasterMind::assignRotaryTurnValues(int diff) {
@@ -90,7 +94,7 @@ void MasterMind::updateCurrentValue(void) {
     currentValue -= decrementValues[touchSwitchValue];
 
   checkStatus();
-
+  cout << currentValue << endl;
   touchSwitchValue = 0;
   rotaryEncoderValue = 0;
 }
@@ -100,6 +104,8 @@ void MasterMind::checkStatus(void) {
     if (currentValue == lockCombination[currentLockPosition]) {
       LEDSwitch(currentLockPosition);
       currentLockPosition++;
+    } else {
+      cout << "That is not the right number" << endl;
     }
 }
 
