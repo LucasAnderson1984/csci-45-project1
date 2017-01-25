@@ -60,7 +60,7 @@ void MasterMind::createLockCombination(void) {
 
   cout << lockCombination[0] << "-";
   cout << lockCombination[1] << "-";
-  cout << lockCombination[2] << end;
+  cout << lockCombination[2] << endl;
 }
 
 void MasterMind::assignRotaryTurnValues(int diff) {
