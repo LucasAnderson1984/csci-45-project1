@@ -8,7 +8,7 @@
 #include <wiringPi.h>
 
 #define SwitchPin             22
-#define ClockwiseTurn         16
+#define ClockwiseTurn         17
 #define CounterclockwiseTurn  27
 
 class RotaryEncoder {

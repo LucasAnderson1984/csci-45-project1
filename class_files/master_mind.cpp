@@ -23,16 +23,12 @@ void MasterMind::startGame() {
 
   createLockCombination();
   difficulty = menu();
-  cout << "Difficulty: "<< difficulty << endl;
   assignRotaryTurnValues(difficulty);
-
   while(currentLockPosition < 3) {
     tiltSwitchValue = tiltSwitch->checkStatus();
     rotaryEncoderValue = rotaryEncoder->rotaryDeal();
     touchSwitchValue = touchSwitch->checkStatus();
-
-    delay(20);
-
+    
     updateCurrentValue();
   }
 
@@ -88,26 +84,30 @@ void MasterMind::assignRotaryTurnValues(int diff) {
 }
 
 void MasterMind::updateCurrentValue(void) {
-  if (rotaryEncoder > 0)
-    currentValue += incrementValues[touchSwitchValue];
-
-  if (rotaryEncoder < 0)
-    currentValue -= decrementValues[touchSwitchValue];
-
+  if (rotaryEncoderValue > 0) {
+    currentValue += incrementValues[tiltSwitchValue];
+    cout << "Current Value: " << currentValue << endl;
+  }
+  if (rotaryEncoderValue < 0) {
+    currentValue -= decrementValues[tiltSwitchValue];
+    cout << "Current Value: " << currentValue << endl;
+  }
+  
   checkStatus();
-  cout << currentValue << endl;
-  touchSwitchValue = 0;
+  
   rotaryEncoderValue = 0;
+  touchSwitchValue = 0;
 }
 
 void MasterMind::checkStatus(void) {
   if (currentLockPosition < 3)
-    if (currentValue == lockCombination[currentLockPosition]) {
+    if (currentValue == lockCombination[currentLockPosition] && touchSwitchValue) {
       LEDSwitch(currentLockPosition);
       currentLockPosition++;
-    } else {
-      cout << "That is not the right number" << endl;
     }
+
+//    if (touchSwitchValue)
+//      cout << "That is not the right number" << endl;
 }
 
 void MasterMind::LEDSwitch(int position) {
