@@ -2,6 +2,7 @@
 #define MASTER_MIND_H
 
 #include <iostream>
+#include <unistd.h>
 #include <time.h>
 #include <wiringPi.h>
 #include "./rotary_encoder.h"

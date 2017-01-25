@@ -30,6 +30,7 @@ void MasterMind::startGame() {
     touchSwitchValue = touchSwitch->checkStatus();
     
     updateCurrentValue();
+    usleep(1500);
   }
 
   cout << "Congratulations, you opened the lock" << endl;
