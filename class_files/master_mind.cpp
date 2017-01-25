@@ -23,6 +23,7 @@ void MasterMind::startGame() {
 
   createLockCombination();
   difficulty = menu();
+  cout << "Difficulty: "<< difficulty << endl;
   assignRotaryTurnValues(difficulty);
 
   while(currentLockPosition < 3) {
@@ -39,7 +40,7 @@ void MasterMind::startGame() {
 }
 
 int MasterMind::menu(void) {
-  int choice;
+  int choice = 0;
 
   cout << "Welcome to this really bad game menu <text pending>\n";
   cout << "0 - Easy(default)\n";
