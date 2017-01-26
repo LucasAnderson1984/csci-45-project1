@@ -9,6 +9,7 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
 
   currentLockPosition = 0;
   currentValue = 0;
+  temp = touchSwitch->checkStatus();
 }
 
 MasterMind::~MasterMind(void) { }
@@ -30,6 +31,7 @@ void MasterMind::startGame() {
     touchSwitchValue = touchSwitch->checkStatus();
 
     updateCurrentValue();
+    usleep(2000);
   }
 
   cout << "Congratulations, you opened the lock" << endl;
@@ -96,8 +98,7 @@ void MasterMind::updateCurrentValue(void) {
   checkStatus();
 
   rotaryEncoderValue = 0;
-  touchSwitchValue = 0;
-  temp = touchSwitch;
+  temp = touchSwitchValue;
 }
 
 void MasterMind::checkStatus(void) {
