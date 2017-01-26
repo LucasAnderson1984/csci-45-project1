@@ -1,5 +1,7 @@
 #include "./../header_files/master_mind.h"
 
+char* MasterMind::device;
+
 MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
   srand(time(NULL));
 
@@ -9,6 +11,9 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
 
   currentLockPosition = 0;
   currentValue = 0;
+  f = 440;
+  fs = 48000;
+  device = "default";
   temp = touchSwitch->checkStatus();
 
   if ((err = snd_pcm_open(&handle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
@@ -35,13 +40,18 @@ void MasterMind::startGame() {
   createLockCombination();
   difficulty = menu();
   assignRotaryTurnValues(difficulty);
+
+  float buffer[BUFFER_LEN];
+
   while(currentLockPosition < 3) {
     tiltSwitchValue = tiltSwitch->checkStatus();
     rotaryEncoderValue = rotaryEncoder->rotaryDeal();
     touchSwitchValue = touchSwitch->checkStatus();
 
     updateCurrentValue();
-    frames = snd_pcm_writei(handle, (sin(2*M_PI*f/fs*rotaryEncoderValue)), BUFFER_LEN);
+
+    buffer[currentValue] = (sin(2*M_PI*f/fs*(currentValue%5)));
+    frames = snd_pcm_writei(handle, buffer, 100);
     usleep(2000);
   }
 

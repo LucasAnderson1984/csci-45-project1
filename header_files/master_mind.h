@@ -5,7 +5,6 @@
 #include <alsa/pcm.h>
 #include <iostream>
 #include <math.h>
-#include <string>
 #include <time.h>
 #include <unistd.h>
 #include <wiringPi.h>
@@ -37,11 +36,11 @@ class MasterMind {
     int currentLockPosition;
     int currentValue;
     int decrementValues[2];
-    static char *device = "default";
+    static char *device;
     int difficulty;
-    int f = 440;
+    int f;
     snd_pcm_sframes_t frames;
-    int fs = 48000;
+    int fs;
     snd_pcm_t *handle;
     int incrementValues[2];
     int lockCombination[3];
