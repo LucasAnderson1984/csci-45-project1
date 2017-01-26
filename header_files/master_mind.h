@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <time.h>
 #include <wiringPi.h>
+#include <alsa/asoundlib.h>
+#include <alsa/pcm.h>
 #include "./rotary_encoder.h"
 #include "./touch_switch.h"
 #include "./tilt_switch.h"

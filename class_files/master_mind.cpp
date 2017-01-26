@@ -97,6 +97,7 @@ void MasterMind::updateCurrentValue(void) {
 
   checkStatus();
 
+  snd_pcm_stream_name((snd_pcm_stream_t)currentValue);
   rotaryEncoderValue = 0;
   temp = touchSwitchValue;
 }
