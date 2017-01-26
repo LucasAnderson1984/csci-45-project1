@@ -9,12 +9,6 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
 
   currentLockPosition = 0;
   currentValue = 0;
-  pinMode(GreenPinOne, OUTPUT);
-  pinMode(GreenPinTwo, OUTPUT);
-  pinMode(GreenPinThree, OUTPUT);
-  pinMode(RedPinOne, OUTPUT);
-  pinMode(RedPinTwo, OUTPUT);
-  pinMode(RedPinThree, OUTPUT);
 }
 
 MasterMind::~MasterMind(void) { }
@@ -34,9 +28,8 @@ void MasterMind::startGame() {
     tiltSwitchValue = tiltSwitch->checkStatus();
     rotaryEncoderValue = rotaryEncoder->rotaryDeal();
     touchSwitchValue = touchSwitch->checkStatus();
-    
+
     updateCurrentValue();
-    usleep(2000);
   }
 
   cout << "Congratulations, you opened the lock" << endl;
@@ -99,22 +92,23 @@ void MasterMind::updateCurrentValue(void) {
     currentValue -= decrementValues[tiltSwitchValue];
     cout << "Current Value: " << currentValue << endl;
   }
-  
+
   checkStatus();
-  
+
   rotaryEncoderValue = 0;
   touchSwitchValue = 0;
+  temp = touchSwitch;
 }
 
 void MasterMind::checkStatus(void) {
   if (currentLockPosition < 3)
-    if (currentValue == lockCombination[currentLockPosition] && touchSwitchValue) {
+    if (currentValue == lockCombination[currentLockPosition] && touchSwitchValue != temp) {
       LEDSwitch(currentLockPosition);
       currentLockPosition++;
     }
 
-//    if (touchSwitchValue)
-//      cout << "That is not the right number" << endl;
+   if (touchSwitchValue != temp)
+     cout << "That is not the right number" << endl;
 }
 
 void MasterMind::LEDSwitch(int position) {

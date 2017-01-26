@@ -35,6 +35,7 @@ class MasterMind {
     int lockCombination[3];
     int rotaryEncoderValue;
     int rotaryValue;
+    int temp;
     int tiltSwitchValue;
     int touchSwitchValue;
 
