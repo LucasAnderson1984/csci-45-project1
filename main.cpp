@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <string.h>
 #include <errno.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <wiringPi.h>
 #include "./header_files/rotary_encoder.h"
 #include "./header_files/touch_switch.h"

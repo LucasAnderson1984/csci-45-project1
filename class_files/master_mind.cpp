@@ -10,6 +10,16 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
   currentLockPosition = 0;
   currentValue = 0;
   temp = touchSwitch->checkStatus();
+
+  if ((err = snd_pcm_open(&handle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
+    printf("Playback open error: %s\n", snd_strerror(err));
+    exit(EXIT_FAILURE);
+  }
+
+  if ((err = snd_pcm_set_params(handle, SND_PCM_FORMAT_FLOAT, SND_PCM_ACCESS_RW_INTERLEAVED, 1, 48000, 1, 500000)) < 0) {
+    printf("Playback open error: %s\n", snd_strerror(err));
+    exit(EXIT_FAILURE);
+  }
 }
 
 MasterMind::~MasterMind(void) { }
@@ -31,9 +41,11 @@ void MasterMind::startGame() {
     touchSwitchValue = touchSwitch->checkStatus();
 
     updateCurrentValue();
+    frames = snd_pcm_writei(handle, (sin(2*M_PI*f/fs*rotaryEncoderValue)), BUFFER_LEN);
     usleep(2000);
   }
 
+  snd_pcm_close(handle);
   cout << "Congratulations, you opened the lock" << endl;
 }
 
