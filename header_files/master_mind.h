@@ -1,8 +1,6 @@
 #ifndef MASTER_MIND_H
 #define MASTER_MIND_H
 
-#include <alsa/asoundlib.h>
-#include <alsa/pcm.h>
 #include <iostream>
 #include <math.h>
 #include <time.h>
@@ -13,8 +11,6 @@
 #include "./tilt_switch.h"
 
 using namespace std;
-
-#define BUFFER_LEN 48000
 
 //Green Pins
 #define GreenPinOne   6
@@ -32,27 +28,17 @@ class MasterMind {
     TouchSwitch *touchSwitch;
     TiltSwitch *tiltSwitch;
 
-    float buffer [BUFFER_LEN];
     int currentLockPosition;
     int currentValue;
     int decrementValues[2];
-    static char *device;
     int difficulty;
-    int f;
-    snd_pcm_sframes_t frames;
-    int fs;
-    snd_pcm_t *handle;
     int incrementValues[2];
     int lockCombination[3];
-    snd_output_t *output = NULL;
     int rotaryEncoderValue;
     int rotaryValue;
     int temp;
     int tiltSwitchValue;
     int touchSwitchValue;
-    int err;
-
-
 
     void assignRotaryTurnValues(int);
     void checkStatus(void);

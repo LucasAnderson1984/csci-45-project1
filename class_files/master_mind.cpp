@@ -1,7 +1,5 @@
 #include "./../header_files/master_mind.h"
 
-char* MasterMind::device;
-
 MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
   srand(time(NULL));
 
@@ -11,20 +9,7 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
 
   currentLockPosition = 0;
   currentValue = 0;
-  f = 440;
-  fs = 48000;
-  device = "default";
   temp = touchSwitch->checkStatus();
-
-  if ((err = snd_pcm_open(&handle, device, SND_PCM_STREAM_PLAYBACK, 0)) < 0) {
-    printf("Playback open error: %s\n", snd_strerror(err));
-    exit(EXIT_FAILURE);
-  }
-
-  if ((err = snd_pcm_set_params(handle, SND_PCM_FORMAT_FLOAT, SND_PCM_ACCESS_RW_INTERLEAVED, 1, 48000, 1, 500000)) < 0) {
-    printf("Playback open error: %s\n", snd_strerror(err));
-    exit(EXIT_FAILURE);
-  }
 }
 
 MasterMind::~MasterMind(void) { }
@@ -41,8 +26,6 @@ void MasterMind::startGame() {
   difficulty = menu();
   assignRotaryTurnValues(difficulty);
 
-  float buffer[BUFFER_LEN];
-
   while(currentLockPosition < 3) {
     tiltSwitchValue = tiltSwitch->checkStatus();
     rotaryEncoderValue = rotaryEncoder->rotaryDeal();
@@ -50,12 +33,9 @@ void MasterMind::startGame() {
 
     updateCurrentValue();
 
-    buffer[currentValue] = (sin(2*M_PI*f/fs*(currentValue%5)));
-    frames = snd_pcm_writei(handle, buffer, 100);
     usleep(2000);
   }
 
-  snd_pcm_close(handle);
   cout << "Congratulations, you opened the lock" << endl;
 }
 
@@ -119,7 +99,6 @@ void MasterMind::updateCurrentValue(void) {
 
   checkStatus();
 
-  snd_pcm_stream_name((snd_pcm_stream_t)currentValue);
   rotaryEncoderValue = 0;
   temp = touchSwitchValue;
 }
