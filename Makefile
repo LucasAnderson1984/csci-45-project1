@@ -1,5 +1,5 @@
 project: main.o touch_switch.o rotary_encoder.o tilt_switch.o master_mind.o
-	g++ main.o touch_switch.o rotary_encoder.o tilt_switch.o master_mind.o -lwiringPi -o project.o
+	g++ main.o touch_switch.o rotary_encoder.o tilt_switch.o master_mind.o -lwiringPi -lasound -o project.o
 
 main.o: main.cpp
 	g++ -c main.cpp -lwiringPi
