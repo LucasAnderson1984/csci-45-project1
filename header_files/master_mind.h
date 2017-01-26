@@ -42,6 +42,7 @@ class MasterMind {
 
     void assignRotaryTurnValues(int);
     void checkStatus(void);
+    void checkTemperature(void);
     void createLockCombination(void);
     void LEDSwitch(int);
     void updateCurrentValue(void);

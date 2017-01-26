@@ -58,10 +58,6 @@ void MasterMind::setDifficulty(int x) {
 void MasterMind::createLockCombination(void) {
   for (int i = 0; i < 3; i++)
     lockCombination[i] = rand() % 100;
-
-  cout << lockCombination[0] << "-";
-  cout << lockCombination[1] << "-";
-  cout << lockCombination[2] << endl;
 }
 
 void MasterMind::assignRotaryTurnValues(int diff) {
@@ -88,14 +84,11 @@ void MasterMind::assignRotaryTurnValues(int diff) {
 }
 
 void MasterMind::updateCurrentValue(void) {
-  if (rotaryEncoderValue > 0) {
+  if (rotaryEncoderValue > 0)
     currentValue += incrementValues[tiltSwitchValue];
-    cout << "Current Value: " << currentValue << endl;
-  }
-  if (rotaryEncoderValue < 0) {
+
+  if (rotaryEncoderValue < 0)
     currentValue -= decrementValues[tiltSwitchValue];
-    cout << "Current Value: " << currentValue << endl;
-  }
 
   checkStatus();
 
@@ -111,7 +104,7 @@ void MasterMind::checkStatus(void) {
     }
 
    if (touchSwitchValue != temp)
-     cout << "That is not the right number" << endl;
+     checkTemperature();
 }
 
 void MasterMind::LEDSwitch(int position) {
@@ -132,4 +125,15 @@ void MasterMind::LEDSwitch(int position) {
       digitalWrite(RedPinThree, LOW);
       break;
   }
+}
+
+void MasterMind::checkTemperature(void) {
+  if (abs(currentValue - lockCombination[currentLockPosition]) <= 5)
+    cout << "So close!!!" << endl;
+  else if (abs(currentValue - lockCombination[currentLockPosition]) <= 15)
+    cout << "Getting warmer" << endl;
+  else if (abs(currentValue - lockCombination[currentLockPosition]) <= 25)
+    cout << "You're in a tropical zone" << endl;
+  else
+    cout << "You must be in outer space because you're ice cold" << endl;
 }
