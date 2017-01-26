@@ -10,6 +10,13 @@ MasterMind::MasterMind(RotaryEncoder* re, TouchSwitch* tos, TiltSwitch* tis) {
   currentLockPosition = 0;
   currentValue = 0;
   temp = touchSwitch->checkStatus();
+
+  pinMode(GreenPinOne, OUTPUT);
+  pinMode(GreenPinTwo, OUTPUT);
+  pinMode(GreenPinThree, OUTPUT);
+  pinMode(RedPinOne, OUTPUT);
+  pinMode(RedPinTwo, OUTPUT);
+  pinMode(RedPinThree, OUTPUT);
 }
 
 MasterMind::~MasterMind(void) { }
